@@ -7,4 +7,3 @@
 ## To use the Vehicle Price & Condition Analysis Dashboard, open the application in your browser after running streamlit run app.py, explore interactive visualizations on vehicle pricing trends, paint color distributions, and condition variations, hover over charts for detailed insights, and utilize future enhancements like machine learning predictions and advanced filtering for deeper analysis.
 
 Render site: https://sprint-4-project-b4lq.onrender.com
-
