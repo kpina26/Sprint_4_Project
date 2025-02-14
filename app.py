@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 st.header('Car Advertisement')
 
@@ -38,3 +41,6 @@ st.write('This histogram shows the distribution of vehicle model years and their
 toggle_make = st.checkbox("Show by Make instead of Model")
 x_axis_column = "make" if toggle_make else "model"
 st.subheader(f"Vehicle Prices by {'Make' if toggle_make else 'Model'}")
+fig, ax = plt.subplots(figsize=(10, 5))
+sns.boxplot(x=df_cars[x_axis_column], y=df_cars["price"], ax=ax)
+st.pyplot(fig)
