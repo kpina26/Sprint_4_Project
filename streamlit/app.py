@@ -1,3 +1,4 @@
+from matplotlib.axes import Axes
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -40,5 +41,5 @@ st.write('This histogram shows the distribution of vehicle model years and their
 toggle_make = st.checkbox("Show by Make instead of Model")
 x_axis_column = "make" if toggle_make else "model"
 st.subheader(f"Vehicle Prices by {'Make' if toggle_make else 'Model'}")
-sns.boxplot(x=df_cars[x_axis_column], y=df_cars["price"], ax=ax)
+sns.boxplot(x=df_cars[x_axis_column], y=df_cars["price"], ax=Axes)
 st.pyplot(fig)
