@@ -35,7 +35,6 @@ fig.update_layout(title_text='Coniditions of Vehicles', xaxis_title='Model Year'
 st.plotly_chart(fig)
 st.write('This histogram shows the distribution of vehicle model years and their conditions, indicating that most vehicles in the dataset are from the 2000s and later, with a significant peak around a particular recent year. The majority of vehicles are categorized as being in "good" condition, followed by "like new" and "fair" conditions, while fewer vehicles are marked as "excellent," "salvage," or "new." The trend suggests that older vehicles are less frequent, likely due to attrition over time, while newer vehicles dominate the dataset, reflecting market availability and consumer demand.')
 
-Excellent = st.checkbox("I agree")
+toggle_make = st.checkbox("Show by Make instead of Model")
+x_axis_column = "make" if toggle_make else "model"
 
-if Excellent:
-    st.write("The amount of excellent cars is 24773")
