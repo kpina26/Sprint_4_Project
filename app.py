@@ -38,9 +38,3 @@ st.write('This histogram shows the distribution of vehicle model years and their
 toggle_make = st.checkbox("Show by Make instead of Model")
 x_axis_column = "make" if toggle_make else "model"
 st.subheader(f"Vehicle Prices by {'Make' if toggle_make else 'Model'}")
-fig, ax = plt.subplots(figsize=(10, 5))
-sns.boxplot(x=df[x_axis_column], y=df["price"], ax=ax)
-plt.xticks(rotation=90)
-st.pyplot(fig)
-
-
