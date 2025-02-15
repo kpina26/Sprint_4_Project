@@ -1,4 +1,3 @@
-from matplotlib.axes import Axes
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -33,13 +32,15 @@ fig.update_layout(scattermode="group", title_text='Price by Paint Color', xaxis_
 st.plotly_chart(fig)
 st.write('This graph shows the distribution of vehicle prices across different manufacturers, showing significant price variability among brands, the prevalence of common paint colors like white and black, the presence of outliers such as high-priced Nissan vehicles, and potential data gaps with the "unknown" category, highlighting trends in market pricing and consumer preferences.')
 
-fig = px.histogram(df_cars, x="model_year", color="condition")
+toggle_make = st.checkbox("Show by Make instead of Model")
+x_axis_column = "make" if toggle_make else "model"
+st.subheader(f"Vehicle Prices by {'Make' if toggle_make else 'Model'}")
+
+fig = px.histogram(df_cars, x=x_axis_column, color="condition")
 fig.update_layout(title_text='Coniditions of Vehicles', xaxis_title='Model Year', yaxis_title='Quantities')
 st.plotly_chart(fig)
 st.write('This histogram shows the distribution of vehicle model years and their conditions, indicating that most vehicles in the dataset are from the 2000s and later, with a significant peak around a particular recent year. The majority of vehicles are categorized as being in "good" condition, followed by "like new" and "fair" conditions, while fewer vehicles are marked as "excellent," "salvage," or "new." The trend suggests that older vehicles are less frequent, likely due to attrition over time, while newer vehicles dominate the dataset, reflecting market availability and consumer demand.')
 
-toggle_make = st.checkbox("Show by Make instead of Model")
-x_axis_column = "make" if toggle_make else "model"
-st.subheader(f"Vehicle Prices by {'Make' if toggle_make else 'Model'}")
-sns.boxplot(x=df_cars[x_axis_column], y=df_cars["price"], ax=Axes)
-st.pyplot(fig)
+
+
+
